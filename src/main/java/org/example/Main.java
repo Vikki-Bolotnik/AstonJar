@@ -1,7 +1,13 @@
 package org.example;
 
+import static org.example.PhoneDirectory.addNumber;
+import static org.example.PhoneDirectory.getNumbers;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class Main {
@@ -10,8 +16,8 @@ public class Main {
 
     Set<Student> students = new HashSet<>();
 
-    students.add(new Student("Вика", "Группа A", 1, Arrays.asList(4, 5, 3)));
-    students.add(new Student("Егор", "Группа B", 2, Arrays.asList(2, 2, 3)));
+    students.add(new Student("Вика", "Группа A", 1, Arrays.asList(3, 4, 5)));
+    students.add(new Student("Егор", "Группа B", 2, Arrays.asList(1, 2, 3)));
     students.add(new Student("Дима", "Группа C", 1, Arrays.asList(5, 5, 5)));
     students.add(new Student("Настя", "Группа D", 3, Arrays.asList(3, 4, 2)));
 
@@ -30,6 +36,19 @@ public class Main {
 
     System.out.println("Студенты на 4 курсе:");
     printStudents(students, 4);
+
+    HashMap<String, ArrayList<String>> phoneBook = new HashMap<>();
+
+    addNumber(phoneBook, "Иванов", "111-11-11");
+    addNumber(phoneBook, "Петров", "222-22-22");
+    addNumber(phoneBook, "Сидоров", "333-33-33");
+    addNumber(phoneBook, "Иванов", "444-44-44");
+
+    for (Map.Entry<String, ArrayList<String>> entry : phoneBook.entrySet()) {
+      System.out.println("\n" + entry.getKey() + ": " + entry.getValue());
+    }
+
+    System.out.println("\nНомера Сидорова: " + getNumbers(phoneBook, "Сидоров"));
   }
 
   public static void removeStudentsWithLowAverage(Set<Student> students) {
