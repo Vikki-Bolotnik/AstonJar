@@ -1,5 +1,4 @@
-package org.example;
-
+import org.example.TriangleAreaCalculator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

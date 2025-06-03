@@ -1,4 +1,7 @@
 import org.example.NumberComparator;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 public class NumberComparatorTest {
 
