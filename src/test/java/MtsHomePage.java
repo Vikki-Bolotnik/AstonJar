@@ -41,6 +41,13 @@ public class MtsHomePage {
     public void verifyPaymentSystemsLogos() {
         List<WebElement> logos = driver.findElements(paymentSystemsLogos);
         Assert.assertEquals(logos.size(), 5);
+
+        String[] expectedAltTexts = {"Visa", "Verified By Visa", "MasterCard", "MasterCard Secure Code", "Белкарт"};
+        for (int i = 0; i < logos.size(); i++) {
+            String altText = logos.get(i).getAttribute("alt");
+            Assert.assertTrue(altText.contains(expectedAltTexts[i]),
+                    "Логотип " + (i+1) + " не соответствует ожидаемому");
+        }
     }
 
     public void verifyDetailsLink() {
