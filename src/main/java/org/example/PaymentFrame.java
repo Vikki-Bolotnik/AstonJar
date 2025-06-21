@@ -1,3 +1,5 @@
+package org.example;
+
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -65,5 +67,20 @@ public class PaymentFrame {
         WebElement container = driver.findElement(paymentSystemsIcons);
         List<WebElement> icons = container.findElements(By.tagName("img"));
         Assert.assertEquals(icons.size(), 5, "Expected 5 payment system icons");
+
+        checkIconExists(icons, "visa");
+        checkIconExists(icons, "mastercard");
+        checkIconExists(icons, "belkart");
+        checkIconExists(icons, "mir");
+        checkIconExists(icons, "maestro");
+    }
+
+    private void checkIconExists(List<WebElement> icons, String iconName) {
+        for (WebElement icon : icons) {
+            if (icon.getAttribute("src").contains(iconName)) {
+                return;
+            }
+        }
+        System.out.println("Ошибка: не найдена иконка " + iconName);
     }
 }

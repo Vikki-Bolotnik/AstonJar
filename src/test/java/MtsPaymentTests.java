@@ -1,4 +1,6 @@
 import io.qameta.allure.*;
+import org.example.MtsHomePage;
+import org.example.PaymentFrame;
 import org.testng.annotations.*;
 
 @Epic("Платежи МТС")
